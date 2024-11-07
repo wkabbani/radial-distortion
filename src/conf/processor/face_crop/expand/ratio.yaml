@@ -1,0 +1,3 @@
+_target_: config.processor.Ratio  # Python corresponding class
+ratio_w: 0
+ratio_h: 0

@@ -1,0 +1,5 @@
+defaults:
+  - /processor/distort/base@_here_
+
+_target_: config.processor.FixedL # Python corresponding class
+l_value: ???                      # Lambda value used for distortion

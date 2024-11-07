@@ -1,0 +1,7 @@
+defaults:
+  - /processor/distort/base@_here_
+
+_target_: config.processor.RandomL  # Python corresponding class
+min: ???                            # Minimum lambda value
+max: ???                            # Maximum lambda value
+seed: null                          # Seed used for the random lambda value generation

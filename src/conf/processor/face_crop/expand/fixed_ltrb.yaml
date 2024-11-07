@@ -1,0 +1,5 @@
+_target_: config.processor.FixedLTRB  # Python corresponding class
+left: 0
+top: 0
+right: 0
+bottom: 0

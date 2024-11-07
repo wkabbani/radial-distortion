@@ -1,0 +1,2 @@
+_target_: config.processor.Distort  # Python corresponding class
+transform: ???                      # Transform type, see Transform enum: [division, ...]

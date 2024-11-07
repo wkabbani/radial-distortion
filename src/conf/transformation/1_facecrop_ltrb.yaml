@@ -1,0 +1,40 @@
+# @package _global_
+
+# This config template will apply face cropping to all images 
+# in the 'source' directory (supports nested directories)
+# and save the cropped images in the 'destination' directory.
+
+# It will expand the cropped face image with a chosen number 
+# of pixels in each of the four directions so you can better control
+# how many pixels you want to add on each side.
+
+# How to use it:
+# 1. Set the path to the source images directory
+# 2. Set the path to the destination directory.
+# 3. Choose how many pixels to expand the crop by on each direction.
+
+defaults:
+  - /processor@transformation.transforms.1: /face_crop/base.yaml
+  - /processor@transformation.transforms.1.expand: /face_crop/expand/fixed_ltrb.yaml
+  - _self_
+
+_target_: config.config.Config  # Python corresponding class
+_convert_: object               # Used to convert nested _target_
+
+run: transformation
+
+transformation:
+  _target_: config.transformation.Transformation
+  source: "path/to/source/dataset"
+  destination: "path/to/destination/dataset"
+  transforms:
+    '1':
+      expand:
+        left: 100
+        top: 150
+        right: 100
+        bottom: 100
+
+hydra:
+  run:
+    dir: outputs/${run}/${now:%Y-%m-%d}/${now:%H-%M-%S}

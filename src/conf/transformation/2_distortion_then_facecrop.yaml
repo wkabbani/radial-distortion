@@ -1,0 +1,41 @@
+# @package _global_
+
+# This config template will allow you to do radial distortion transformation
+# then face cropping to all images in the 'source' directory (supports nested directories)
+# and save the distorted images in the 'destination' directory.
+
+# How to use it:
+# 1. Set the path to the source images directory
+# 2. Set the path to the destination directory.
+# 3. Choose the pixel expansion strategy you want for face cropping 
+# and supply its relevant parameters (as shown the face cropping config files).
+# 4. Choose the radial distortion type (fixed or random)
+# and supply its relevant parameters (as shown the radial distortion config files).
+
+
+defaults:
+  - /processor@transformation.transforms.1: /distort/fixed_l
+  - /processor@transformation.transforms.2: /face_crop/base.yaml
+  - /processor@transformation.transforms.2.expand: /face_crop/expand/fixed.yaml
+  - _self_
+
+_target_: config.config.Config  # Python corresponding class
+_convert_: object               # Used to convert nested _target_
+
+run: transformation
+
+transformation:
+  _target_: config.transformation.Transformation
+  source: "path/to/source/dataset"
+  destination: "path/to/destination/dataset"
+  transforms:
+    '1':
+      transform: stereographic
+      l_value: 1.5
+    '2':
+      expand:
+        expansion: 50
+
+hydra:
+  run:
+    dir: outputs/${run}/${now:%Y-%m-%d}/${now:%H-%M-%S}

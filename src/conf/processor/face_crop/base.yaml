@@ -1,0 +1,6 @@
+defaults:
+  - optional expand: null
+
+_target_: config.processor.FaceCrop
+detector: mediapipe
+detector_path: path/to/models/detector.tflite
