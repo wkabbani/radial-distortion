@@ -1,6 +1,6 @@
 # Radial Distortion in Face Images: Detection and Impact
 
-Radial distortion, also known as the fish-eye effect, is one of the main categories of camera distortions. It distorts the image, creating a hemispherical (panoramic) effect. The effect on facial images is shown in the example images below.
+Radial distortion, also known as the fish-eye effect, is one of the main categories of camera distortions. It distorts the image, creating a hemispherical (panoramic) effect. The effect on facial images is shown in the example images below. The full paper can be found on [ieeexplore](https://ieeexplore.ieee.org/document/10744456).
 
 | ![Sample radially distorted images!](assets/samples.png) | 
 |:--:| 
